@@ -6,6 +6,7 @@
 *~
 *.orig
 *.local.php
+deploy/config
 .DS_Store
 .DS_Store?
 .buildpath

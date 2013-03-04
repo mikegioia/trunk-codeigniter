@@ -1,0 +1,15 @@
+application/logs/(?!index\.html|\.htaccess)
+application/cache/(?!index\.html|\.htaccess)
+environment\.php
+deploy/config
+/*~$
+
+syntax: glob
+.DS_Store
+*.orig
+*.local.php
+*.[Bb][Aa][Kk]
+*.[Cc]ache
+.buildpath
+.project
+.settings

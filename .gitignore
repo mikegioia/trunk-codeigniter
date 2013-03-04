@@ -1,0 +1,13 @@
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html
+*~
+*.orig
+*.local.php
+.DS_Store
+.DS_Store?
+.buildpath
+.project
+.settings

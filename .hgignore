@@ -1,7 +1,7 @@
 application/logs/(?!index\.html|\.htaccess)
 application/cache/(!index\.html|\.htaccess)
 environment\.php
-deploy/config
+^deploy/config$
 /*~$
 
 syntax: glob

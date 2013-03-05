@@ -1,0 +1,114 @@
+#!/bin/bash
+
+# check if config file exists, if not create one
+#
+if [ ! -f 'config' ] ; then
+    touch 'config'
+    echo 'environment=development # ex: development, production, or a nickname' > config
+    echo 'db_username=' >> config
+    echo 'db_password=' >> config
+    echo 'db_database=' >> config
+    echo 'db_driver=mysql' >> config
+    echo 'mongodb_hostname=localhost:27017' >> config
+    echo 'mongodb_database=' >> config
+    echo "";
+    echo "An empty config file was created at deploy/config."
+    echo "Update this file and run ./configure again."
+    echo "";
+    exit
+fi
+
+# ask if they want to do this
+#
+echo 'This script will create new local config files'
+read -p 'Do you want to continue [Y/n]? ' wish
+if ! [[ "$wish" == "y" || "$wish" == "Y" ]] ; then
+    exit
+fi
+
+. ./config
+
+# go up to root
+#
+cd "../"
+
+# create config.local
+config_path="application/config/config.local.php"
+
+if [ ! -f $config_path ] ; then
+    touch $config_path
+fi
+
+echo "<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');" > $config_path
+echo "" >> $config_path
+
+echo "  --> Created $config_path"
+
+# create database.local
+#
+database_path="application/config/database.local.php"
+
+if [ ! -f $database_path ] ; then
+    touch $database_path
+fi
+
+echo "<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');" > $database_path
+echo "" >> $database_path
+echo "\$config['db']['hostname'] = 'localhost';" >> $database_path
+echo "\$config['db']['username'] = '$db_username';" >> $database_path
+echo "\$config['db']['password'] = '$db_password';" >> $database_path
+echo "\$config['db']['database'] = '$db_database';" >> $database_path
+echo "\$config['db']['dbdriver'] = '$db_driver';" >> $database_path
+echo "\$config['db']['dbprefix'] = '';" >> $database_path
+echo "\$config['db']['pconnect'] = TRUE;" >> $database_path
+echo "\$config['db']['db_debug'] = TRUE;" >> $database_path
+echo "\$config['db']['cache_on'] = FALSE;" >> $database_path
+echo "\$config['db']['cachedir'] = '';" >> $database_path
+echo "\$config['db']['char_set'] = 'utf8';" >> $database_path
+echo "\$config['db']['dbcollat'] = 'utf8_general_ci';" >> $database_path
+echo "\$config['db']['swap_pre'] = '';" >> $database_path
+echo "\$config['db']['autoinit'] = TRUE;" >> $database_path
+echo "\$config['db']['stricton'] = FALSE;" >> $database_path
+
+echo "  --> Created $database_path"
+
+# create mongodb.local
+#
+mongodb_path="application/config/mongodb.local.php"
+
+if [ ! -f $mongodb_path ] ; then
+    touch $mongodb_path
+fi
+
+echo "<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');" > $mongodb_path
+echo "" >> $mongodb_path
+echo "\$config['mongodb']['mongo_hostbase'] = '$mongodb_hostname';" >> $mongodb_path
+echo "\$config['mongodb']['mongo_database'] = '$mongodb_database';" >> $mongodb_path
+
+echo "  --> Created $mongodb_path"
+
+# create the logs/cache folder if it's not there
+#
+if [ ! -d "application/logs" ] ; then
+    mkdir application/logs
+    echo "  --> Created application/logs"
+fi
+if [ ! -d "application/cache" ] ; then
+    mkdir application/cache
+    echo "  --> Created application/cache"
+fi
+
+# open up the directories for writing
+#
+chmod -R 755 application/cache
+chmod -R 755 application/logs
+
+# write the environment file
+#
+echo "<?php" > environment.php
+echo "" >> environment.php
+echo "define('ENVIRONMENT', '$environment');" >> environment.php
+
+echo "  --> Created environment.php"
+
+chmod 755 environment.php

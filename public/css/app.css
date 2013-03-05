@@ -1,0 +1,6 @@
+/* IE8 and under */
+.lt-ie9 * {
+    display: none; }
+.lt-ie9 p.chromeframe {
+    display: block; }
+

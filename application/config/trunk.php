@@ -8,9 +8,11 @@ $config[ 'load_mongo' ] = FALSE;
 $config[ 'asset_version' ] = 1;
 $config[ 'release_version' ] = '1.0.0';
 $config[ 'html_title' ] = "My App";
+$config[ 'tagline' ] = 'Tag line';
 $config[ 'admin_mode' ] = FALSE;
 $config[ 'js_environment' ] = 'development';
 $config[ 'google_analytics_key' ] = '';
+$config[ 'nav_buttons' ] = array();
 
 
 // application constants

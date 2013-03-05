@@ -1,0 +1,256 @@
+/*
+ * Generic 
+ */
+html {
+    margin: 0; padding: 0; height: 100%; }
+body {
+    font-size: 16px; margin: 0; padding: 0; height: 100%; width: 100%; 
+    font-family: 'Ubuntu', sans-serif; background: #eee; }
+a {
+    outline: none; text-decoration: none; color: #3c84ce ;}
+p {
+    margin: 0; padding: 0; }
+h1, h2, h3, h4, h5 {
+    margin: 0; padding: 0; line-height: 100%; }
+h1 {
+    font-weight: normal; font-size: 5em; 
+    color: #474641; }
+h2 {
+    font-weight: normal; font-size: 2em; 
+    color: #474641; margin-bottom: 0.5em; line-height: 100%; }
+h3 {
+    font-weight: normal; font-size: 1.375em; 
+    color: #63615B; border-bottom: 1px solid #e1e1e1; padding: 0.5em 0; 
+    margin-bottom: 0.5em; line-height: 100%; }
+h4 {
+    font-weight: normal; font-size: 1em; 
+    color: #474641; font-weight: bold; margin-bottom: 0.5em; padding: 0.5em 0; }
+code,
+pre {
+    border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+sup {
+    vertical-align: top; position: relative; top: -0.5em; }
+
+/* Clearfix */
+.clearfix:after {
+    content: "."; display: block; clear: both; visibility: hidden; line-height: 0;
+    height: 0; }
+.clearfix {
+    display: inline-block; }
+html[xmlns] .clearfix {
+    display: block; }
+* html .clearfix {
+    height: 1%; }
+
+/* Utility */
+.block {
+    display: block; }
+.inline-block {
+    display: inline-block; }
+.padded-top-5 {
+    padding-top: 5px !important; }
+.padded-top-10 {
+    padding-top: 10px !important; }
+.margin-down-5 {
+    margin-bottom: 5px !important; }
+.margin-down-10 {
+    margin-bottom: 10px !important; }
+.margin-down-15 {
+    margin-bottom: 15px !important; }
+.margin-down-20 {
+    margin-bottom: 20px !important; }
+.round-2 {
+    border-radius: 2px; }
+.round-3 {
+    border-radius: 3px; }
+.round-4 {
+    border-radius: 4px; }
+.round-5 {
+    border-radius: 5px; }
+.sans-serif {
+    font-family: 'Ubuntu', sans-serif; }
+.serif {
+    font-family: serif; }
+
+/* Buttons */
+a.button,
+input.button {
+    display: inline-block; padding: 0.4em 0.66em; font-size: 1em; background-color: #ddd; 
+    color: #444; box-shadow: 0 -3px 12px #bbb inset, 0 1px 1px #999; 
+    border: 1px solid #bbb; cursor: pointer; text-shadow: 0 1px 0 #eee; }
+a.button:hover,
+input.button:hover {
+    background-color: #ccc; box-shadow: 0 -3px 12px #999 inset, 0 1px 1px #888;
+    border: 1px solid #aaa; }
+a.button:active,
+input.button:active {
+    box-shadow: 0 3px 12px #999 inset, 0 1px 0 #f1f1f1; }
+
+/* Forms */
+input[type="text"], 
+input[type="password"], 
+textarea {
+    border: 1px solid #bbb; box-shadow: 0 1px 3px #ccc; border-bottom: 1px solid #aaa;
+    background: #fff; -webkit-box-shadow: 0 1px 3px #ccc; -moz-box-shadow: 0 1px 3px #ccc;
+    -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;
+    font-size: 0.875em; margin: 0; padding: 8px 10px; outline: none; }
+
+/* Header */
+#header {
+    height: 36px; position: fixed; background: #ddd; border-bottom: 1px solid #f1f1f1; 
+    z-index: 3; width: 100%; box-shadow: 0 2px 15px #d1d1d1; 
+    -moz-box-shadow: 0 2px 15px #d1d1d1; -webkit-box-shadow: 0 2px 15px #d1d1d1; }
+#header .liner {
+    border-bottom: 1px solid #bbb; height: 35px; width: 100%; }
+#header .name {
+    color: #aaa; height: 35px; float: left; overflow: hidden; font-size: 24px; line-height: 34px; 
+    position: relative; text-shadow: 0 1px 0 #EEE, 0 -1px 0 #bbb; padding-left: 15px; }
+#header .name a {
+    color: #999; }
+#header .buttons {
+    float: left; margin-left: 25px; height: 36px; }
+#header .buttons a {
+    background-color: #bbb; padding: 3px 6px; float: left; line-height: 0;
+    box-shadow: 0 1px 0px #888, 0 -10px 12px #999 inset; color: #777; font-size: 20px;
+    display: block; position: relative; top: 3px; margin-right: 5px; height: 22px; }
+#header .buttons a:hover {
+    box-shadow: 0 1px 0px #777, 0 -6px 12px #888 inset; color: #666;
+    -webkit-box-shadow: 0 1px 0px #777, 0 -6px 12px #888 inset; color: #666;
+    -moz-box-shadow: 0 1px 0px #777, 0 -6px 12px #888 inset; color: #666; }
+#header .buttons a:active {
+    box-shadow: 0 1px 0px #eee, 0 2px 10px #888 inset; background-color: #aaa;
+    -webkit-box-shadow: 0 1px 0px #eee, 0 2px 10px #888 inset; color: #666;
+    -moz-box-shadow: 0 1px 0px #eee, 0 2px 10px #888 inset; }
+#header .buttons a i {
+    position: relative; top: 1px; text-shadow: 0 1px 0 #ccc; }
+
+#header .tagline {
+    position: absolute; top: 6px; right: 0; background: rgba(0, 0, 0, 0.1); font-size: 13px; 
+    padding: 4px 25px 4px 8px; color: #666; border-bottom: 1px solid #eee; 
+    border-top: 1px solid #999; box-shadow: 1px 1px 8px #999 inset; line-height: 15px; 
+    text-shadow: 0 1px 0 #eee; border-radius: 2px 0 0 2px; }
+#header .tagline span {
+    position: relative; top: -1px; }
+
+#sidebar {
+    position: fixed; top: 37px; bottom: 0px; left: 0px; width: 20%; background: #d1d1d1;
+    border-right: 1px solid #fff; z-index: 2; box-shadow: 2px 0 15px #d1d1d1;
+    -webkit-box-shadow: 2px 0 15px #d1d1d1; -moz-box-shadow: 2px 0 15px #d1d1d1; 
+    overflow-x: hidden; overflow-y: auto; }
+#sidebar .liner {
+    border-right: 1px solid #999; height: 100%; top: 0; position: absolute; 
+    width: 100%; right: 0px; background: #d1d1d1; }
+#sidebar ul {
+    list-style-type: none; list-style-position: inside; padding: 0; margin: 0; }
+#sidebar ul:first-child {
+    box-shadow: 0 1px 18px #e1e1e1; -webkit-box-shadow: 0 1px 18px #e1e1e1;
+    -moz-box-shadow: 0 1px 18px #e1e1e1; }
+#sidebar ul li {
+    border-bottom: 1px solid #b9b9b9; border-top: 1px solid #d9d9d9; background: #ccc }
+#sidebar ul li a {
+    padding: 8px 10px 8px 17px; display: block; }
+#sidebar ul li a:hover {
+    background-color: #c9c9c9; }
+#sidebar ul li li:last-child {
+    border-bottom: none; }
+#sidebar ul li ul {
+    border-top: 1px solid #b9b9b9; }
+#sidebar ul li ul li a {
+    padding-left: 2em; font-size: 90%; }
+
+
+/* Content */
+#content {
+    padding-top: 37px; background: #eee; }
+#page {
+    padding: 15px; }
+#page .section {
+    background-color: #fff; border-bottom: 1px solid #ddd; padding: 15px; }
+#page .section h2,
+#page .section h3,
+#page .section h4 {
+    padding-top: 0; }
+table {
+    border: 1px solid #ccc; border-right: none; border-bottom: none; border-spacing:0;
+    border-collapse: collapse; }
+table th {
+    background-color: #eee; padding: 5px 8px; font-weight: bold; color: #666; 
+    text-align: left; border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; }
+table td {
+    padding: 5px 8px; border-right: 1px solid #ddd; border-bottom: 1px solid #ccc; }
+table tr td:last-child {
+    border-right: 1px solid #ccc; }
+
+
+/*
+ * Media queries
+ */
+@media only screen and (min-width: 1600px) {
+    body {
+        font-size: 20px; }
+    #header {
+        height: 44px; }
+    #header .liner {
+        height: 43px; }
+    #header .name {
+        height: 43px; font-size: 26px; line-height: 42px; }
+    #header .buttons {
+        height: 44px; }
+    #header .buttons a {
+        font-size: 22px; height: 26px; top: 5px; padding: 3px 7px; }
+    #header .buttons a i {
+        top: 2px; }
+    #header .tagline {
+        top: 6px; font-size: 16px; line-height: 16px; padding: 7px 25px 8px 10px; }
+    #content {
+        padding-top: 45px; }
+    #sidebar {
+        position: fixed; top: 44px; }
+}
+
+@media only screen and (max-width: 1600px) and (min-width: 1280px) {
+    body {
+        font-size: 18px; }
+    #header {
+        height: 40px; }
+    #header .liner {
+        height: 39px; }
+    #header .name {
+        height: 39px; font-size: 24px; line-height: 38px; }
+    #header .buttons {
+        height: 40px; }
+    #header .buttons a {
+        font-size: 20px; height: 24px; top: 4px; }
+    #header .buttons a i {
+        top: 2px; }
+    #header .tagline {
+        top: 6px; font-size: 15px; line-height: 15px; padding: 6px 25px 6px 8px; }
+    #content {
+        padding-top: 41px; }
+    #sidebar {
+        top: 40px; }
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 1024px) {
+    
+}
+
+@media all and (max-width: 1024px) and (min-width: 720px) {
+
+}
+
+@media all and (max-width: 720px) and (min-width: 600px) {
+
+}
+
+@media only screen and (max-device-width: 720px) and (orientation:portrait) {
+
+}
+
+@media only screen and (max-device-width: 1280px) and (orientation:landscape) {
+
+}
+
+@media all and (max-width: 600px) {
+
+}

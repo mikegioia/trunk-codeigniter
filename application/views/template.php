@@ -19,6 +19,10 @@
         <link rel="stylesheet" href="<?php echo site_url( 'public/css/skeleton.css' ); ?>">
         <link rel="stylesheet" href="<?php echo site_url( 'public/css/app.css' ); ?>">
 
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+
+        <!-- Trunk JS -->
         <script src="<?php echo site_url( 'public/js/app.js' ); ?>"></script>
     </head>
     <body>
@@ -30,15 +34,39 @@
         <div id="container" class="clearfix block">
 
             <!-- Header -->
-            <div id="header" class="margin-down-20">
-                <div class="liner">
-                    <div class="name"><?php echo config( 'html_title' ); ?></div>
-                    <div class="buttons">
-                        
+            <div id="header">
+                <div class="liner clearfix block">
+                    <div class="name">
+                        <a href="<?php echo site_url(); ?>"><?php echo config( 'html_title' ); ?></a>
                     </div>
-                    <div class="tagline"></div>
+<?php   if ( count( config( 'nav_buttons' ) ) ): ?>
+                    <div class="buttons">
+<?php       foreach ( config( 'nav_buttons' ) as $key => $button ): ?>
+                        <a href="<?php echo $button[ 'url' ]; ?>" class="round-3">
+<?php           if ( $button[ 'icon' ] ): ?>
+                            <i class="icon-<?php echo $button[ 'icon' ]; ?>"></i>
+<?php           endif; 
+                if ( $button[ 'text' ] ): ?>
+                           <?php echo $button[ 'text' ]; ?>">
+<?php           endif; ?>
+                        </a>
+<?php       endforeach; ?>
+                    </div>
+<?php   endif; 
+        if ( strlen( config( 'tagline' ) ) ): ?>
+                    <div class="tagline">
+                        <?php echo config( 'tagline' ); ?>
+                    </div>
+<?php   endif; ?>
                 </div>
             </div><!-- /header -->
+
+            <!-- Sidebar -->
+            <div id="sidebar">
+                <div class="liner">
+                    <?php $this->load->view( 'nav' ); ?>
+                </div>
+            </div><!-- /sidebar -->
 
             <!-- Content -->
             <div id="content" class="clearfix block">
@@ -47,14 +75,14 @@
                 </div><!-- /page -->
             </div><!-- /content -->
 
-            <!-- Footer -->
-            <div id="footer">
-                <p>
-                    Footer
-                </p>
-            </div><!-- /footer -->
-        
         </div><!-- /container -->
+
+        <!-- Tour -->
+        <div id="tour" style="display:none;">
+<?php   if ( isset( $tour_view ) ):
+            $this->load->view( 'tours/'. $tour_view );
+        endif; ?>
+        </div><!-- /tour -->
 
         <!-- Load Trunk -->
         <script>
@@ -76,8 +104,9 @@
                 <?php echo $js_page; ?>.load();
 <?php       endforeach;
         endif; 
-        if ( isset( $tour ) && strlen( $tour ) ): ?>
-
+        if ( isset( $tour_view ) && strlen( $tour_view ) ): ?>
+            App.Tour.start( 
+                $( '#tour .aj-tour' ));
 <?php   endif;
 
         // check status messages

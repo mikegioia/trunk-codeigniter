@@ -43,7 +43,7 @@
                     <div class="buttons">
 <?php       foreach ( config( 'nav_buttons' ) as $key => $button ): 
                 $url = ( isset( $button[ 'site_url' ] ) && $button[ 'site_url' ] )
-                    ? $button[ 'site_url' ]
+                    ? site_url( $button[ 'site_url' ] )
                     : $button[ 'url' ]; ?>
                         <a href="<?php echo $url; ?>" class="round-3">
 <?php           if ( $button[ 'icon' ] ): ?>

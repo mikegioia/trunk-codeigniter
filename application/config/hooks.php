@@ -10,7 +10,12 @@
 |
 */
 
-
+$hook[ 'pre_controller' ] = array(
+    'class' => 'Utility',
+    'function' => 'load_config',
+    'filename' => 'Utility.php',
+    'filepath' => 'hooks',
+    'params' => array() );
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */

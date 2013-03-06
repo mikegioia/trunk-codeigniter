@@ -18,13 +18,13 @@ class Auth {
         //
         if ( config( 'load_mysql' ) )
         {
-            $this->load->library( 'database' );
-            $this->load->model( 'user_model' );
+            $this->CI->load->library( 'database' );
+            $this->CI->load->model( 'user_model' );
         }
 
         if ( config( 'load_mongo' ) )
         {
-            $this->load->library( 'mongo_db' );
+            $this->CI->load->library( 'mongo_db' );
         }
 
         log_message( 'debug', "Auth Class Initialized" );

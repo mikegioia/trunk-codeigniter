@@ -64,6 +64,19 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+// if there is a local config file, overwrite the settings with that
+//
+if ( is_readable( FCPATH . APPPATH . 'config/database.local.php' ) )
+{
+    include_once( FCPATH . APPPATH . 'config/database.local.php' );
+    
+    foreach( $db[ 'default' ] as $key => $val )
+    {
+        $db[ 'default' ][ $key ] = ( isset( $config[ 'db' ][ $key ] ) ) 
+            ? $config[ 'db' ][ $key ]
+            : $val;
+    }
+}
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */

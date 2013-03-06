@@ -83,7 +83,7 @@ $autoload['helper'] = array(
 */
 
 $autoload['config'] = array(
-    'trunk' );
+    'trunk', 'config.local' );
 
 
 /*

@@ -5,7 +5,8 @@
 //
 
 // below are all of the trunk defaults. you can overwrite any of these
-// in your config.local file.
+// in the app config file. for instance specific config variables (or
+// private, untracked ones) use config.local.
 //
 $config[ 'environment' ] = ENVIRONMENT;
 $config[ 'load_mysql' ] = FALSE;

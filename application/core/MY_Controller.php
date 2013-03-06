@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class App_Controller extends CI_Controller
+class MY_Controller extends CI_Controller
 {
     var $title;
 
@@ -153,16 +153,4 @@ STR;
             }            
         }
     }
-}
-
-class Task_Controller extends App_Controller
-{
-
-    function __construct()  
-    {
-        parent::__construct();
-
-        // optional check if its a POST request
-    }
-
 }

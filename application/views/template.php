@@ -50,7 +50,7 @@
                             <i class="icon-<?php echo $button[ 'icon' ]; ?>"></i>
 <?php           endif; 
                 if ( $button[ 'text' ] ): ?>
-                           <?php echo $button[ 'text' ]; ?>">
+                           <?php echo $button[ 'text' ]; ?>
 <?php           endif; ?>
                         </a>
 <?php       endforeach; ?>

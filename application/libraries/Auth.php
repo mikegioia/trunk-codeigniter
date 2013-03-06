@@ -18,7 +18,7 @@ class Auth {
         //
         if ( config( 'load_mysql' ) )
         {
-            $this->CI->load->library( 'database' );
+            $this->CI->load->database();
             $this->CI->load->model( 'user_model' );
         }
 

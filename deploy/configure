@@ -41,6 +41,7 @@ fi
 
 echo "<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');" > $config_path
 echo "" >> $config_path
+echo "\$config[ 'encryption_key' ] = 'change me';";
 
 echo "  --> Created $config_path"
 

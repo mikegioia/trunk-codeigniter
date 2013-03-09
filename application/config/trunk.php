@@ -28,3 +28,5 @@ define( 'SUCCESS', 'success' );
 
 define( 'INT', 'int' );
 define( 'STRING', 'string' );
+
+define( 'DATE_MYSQL', 'Y-m-d H:i:s' );

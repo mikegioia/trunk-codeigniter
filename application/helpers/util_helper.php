@@ -10,6 +10,11 @@ function config( $key )
     return $CI->config->item( $key );    
 }
 
+function now()
+{
+    return date( DATE_MYSQL );
+}
+
 function mysql_date( $date = FALSE )
 {
     if ( $date === FALSE )

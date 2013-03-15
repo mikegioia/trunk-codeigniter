@@ -78,13 +78,13 @@ STR;
     function render()
     {
         $output = array(
-            'status' =>     $this->status,
-            'message' =>    $this->message,
-            'html' =>       $this->html,
-            'script' =>     $this->script,
-            'data' =>       $this->data,
-            'pager' =>      $this->pager,
-            'redirect' =>   $this->redirect );
+            'status' => $this->status,
+            'message' => $this->message,
+            'html' => $this->html,
+            'script' => $this->script,
+            'data' => $this->data,
+            'pager' => $this->pager,
+            'redirect' => $this->redirect );
         
         if ( $this->ajax )
         {
@@ -98,6 +98,15 @@ STR;
 
             $output[ 'html' ] = $temp;
             unset( $temp );
+
+            foreach ( $this->util->get_messages() as $type => $messages )
+            {
+                foreach ( $messages as $message )
+                {
+                    $output[ 'status' ] = $type;
+                    $output[ 'message' ] = $message;
+                }
+            }
 
             if ( $this->requires_textarea )
             {
@@ -115,9 +124,12 @@ STR;
             $this->session->set_flashdata( 
                 $this->status, $this->message );
         
-            foreach ( $this->util->get_messages() as $type => $message )
+            foreach ( $this->util->get_messages() as $type => $messages )
             {
-                $this->session->set_flashdata( $type, $message );
+                foreach ( $messages as $message )
+                {
+                    $this->session->set_flashdata( $type, $message );
+                }
             }
 
             if ( strlen( $this->util->redirect ) )

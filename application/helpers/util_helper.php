@@ -14,15 +14,15 @@ function mysql_date( $date = FALSE )
 {
     if ( $date === FALSE )
     {
-        return date( "Y-m-d H:i:s", now() );
+        return date( DATE_MYSQL, time() );
     }
     elseif ( is_int( $date ) )
     {
-        return date( "Y-m-d H:i:s", $date );
+        return date( DATE_MYSQL, $date );
     }
     else
     {
-        return date( "Y-m-d H:i:s", strtotime( $date ) );
+        return date( DATE_MYSQL, strtotime( $date ) );
     }
 }
 

@@ -100,6 +100,7 @@
     border-bottom-left-radius: 2px; 
     border-bottom-right-radius: 2px;
     border-bottom: 1px solid #E2B500;
+    line-height: 1;
 }
 
 
@@ -692,13 +693,14 @@ th .aj-th-filter-sort.desc.on {
     margin: 0 0 15px;
     padding: 0 0 12px;
     text-shadow: none;
-    color: #DDD;
+    color: #CCC;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 .aj-tour p {
     margin: 0 0 15px;
-    color: #FFFFFF;
     line-height: 150%;
+    color: #DDD;
+    font-size: 1.15em;
 }
 #aj-tour-overlay {
     position: fixed;
